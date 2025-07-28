@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillSprint</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-bolt"></i>
+                    SkillSprint
+                </div>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                    <span>Dark Mode</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="skill-section">
+                <div class="section-header">
+                    <h2 class="section-title">My Learning Goals</h2>
+                </div>
+
+                <div class="add-skill-form">
+                    <div class="form-group">
+                        <label for="skillName">Skill Name</label>
+                        <input type="text" id="skillName" class="form-control" placeholder="e.g. JavaScript, UI Design">
+                    </div>
+                    <div class="form-group">
+                        <label for="skillCategory">Category</label>
+                        <select id="skillCategory" class="form-control">
+                            <option value="programming">Programming</option>
+                            <option value="design">Design</option>
+                            <option value="language">Language</option>
+                            <option value="business">Business</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <button id="addSkillBtn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Add Skill
+                    </button>
+                </div>
+
+                <div id="skillsContainer" class="skills-grid">
+                    <!-- Skills will be added here dynamically -->
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <h3 class="section-title">Your Progress</h3>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalSkills">0</div>
+                        <div class="stat-label">Total Skills</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="completedSkills">0</div>
+                        <div class="stat-label">Completed</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="inProgressSkills">0</div>
+                        <div class="stat-label">In Progress</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="completionRate">0%</div>
+                        <div class="stat-label">Completion Rate</div>
+                    </div>
+                </div>
+
+                <div class="milestone-list">
+                    <h3 class="section-title">Recent Milestones</h3>
+                    <div id="milestonesContainer">
+                        <!-- Milestones will be added here dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Modal -->
+    <div id="editModal" class="edit-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Edit Skill</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="editSkillName">Skill Name</label>
+                    <input type="text" id="editSkillName" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="editSkillCategory">Category</label>
+                    <select id="editSkillCategory" class="form-control">
+                        <option value="programming">Programming</option>
+                        <option value="design">Design</option>
+                        <option value="language">Language</option>
+                        <option value="business">Business</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="editSkillProgress">Progress (%)</label>
+                    <input type="number" id="editSkillProgress" class="form-control" min="0" max="100">
+                </div>
+                <div class="form-group">
+                    <label for="editSkillStatus">Status</label>
+                    <select id="editSkillStatus" class="form-control">
+                        <option value="planned">Planned</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelEditBtn" class="btn btn-warning">Cancel</button>
+                <button id="saveEditBtn" class="btn btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">
+        <div class="toast-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="toast-message">Skill added successfully!</div>
+        <button class="toast-close">&times;</button>
+    </div>
+
+    <script src="java.js"></script>
+</body>
+</html>
